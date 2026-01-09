@@ -23,7 +23,16 @@ fdisk [device]
 > Generic
 > - p  print the partition table
 > - n  add a new partition
-> - t  change a partition type
+> - t  change a partition type (type L to list all)
+>   ef uefi linux - 83
+| num | alias | type             |
+| --- | ----- | ---------------- |
+| 1   | uefi  | EFI System       |
+| 20  | linux | Linux filesystem |
+| 19  | swap  | Linux swap       |
+| 42  | home  | Linux home       |
+| 44  | lvm   | Linux LVM        |
+
 > - d  delete a partition
 
 > Save & Exit
