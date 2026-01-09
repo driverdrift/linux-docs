@@ -1,9 +1,9 @@
-Display amount of free and used memory in the system
+display amount of free and used memory in the system
 ```sh
 free -h
 ```
 
-Add swap memory when necessary
+add swap memory when necessary
 ```sh
 dd if=/dev/zero of=/swapfile bs=128M count=8
 chmod 600 /swapfile
