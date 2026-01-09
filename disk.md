@@ -17,15 +17,15 @@ Manipulate disk partition table (m for help)
 fdisk [device]
 ```
 > Create a new label
-- g  create a new empty GPT partition table
-- o  create a new empty MBR (DOS) partition table
+> - g  create a new empty GPT partition table
+> - o  create a new empty MBR (DOS) partition table
 
-Generic
-- p  print the partition table
-- n  add a new partition
-- t  change a partition type
-- d  delete a partition
+> Generic
+> - p  print the partition table
+> - n  add a new partition
+> - t  change a partition type
+> - d  delete a partition
 
-Save & Exit
-- w  write table to disk and exit
-- q  quit without saving changes
+> Save & Exit
+> - w  write table to disk and exit
+> - q  quit without saving changes
