@@ -44,7 +44,7 @@ fdisk [device]
 > - a  toggle a bootable flag
 
 > MBR disk partition table sample (extended ≤ 1, primary + extended ≤ 4, extended cotains logical up to 128).
-> After add a extended partition using all the remain space, it sometimes remind that `All space for primary partitions is in use.` without showing `Adding logical partition` option when add a new partition as ioctl() delay re-reading altered partition table to sync disks. Just use `w` to write table to disk and exit, then re-enter into fdisk.
+> After add a extended partition using all the remain space, it sometimes remind that *All space for primary partitions is in use.* without showing *Adding logical partition* option when add a new partition as ioctl() delay re-reading altered partition table to sync disks. Just use `w` to write table to disk and exit, then re-enter into fdisk.
 
 | Device    | Boot | Start     | End       | Sectors   | Size | Id   | Type            |
 | :-------- | ---- | --------: | --------: | --------: | ---: | ---: | :-------------- |
