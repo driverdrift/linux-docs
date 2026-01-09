@@ -25,6 +25,7 @@ fdisk [device]
 > - n  add a new partition
 > - t  change a partition type (type L to list all)
 >   ef uefi linux - 83
+
 | num | alias | type             |
 | --- | ----- | ---------------- |
 | 1   | uefi  | EFI System       |
