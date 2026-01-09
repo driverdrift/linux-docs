@@ -21,6 +21,7 @@ Manipulate disk partition table (m for help)
 ```
 fdisk [device]
 ```
+
 > Create a new label
 > - g  create a new empty GPT partition table
 > - o  create a new empty MBR (DOS) partition table
@@ -38,6 +39,18 @@ fdisk [device]
 | 19  | swap  | Linux swap       |
 | 42  | home  | Linux home       |
 | 44  | lvm   | Linux LVM        |
+
+> DOS (MBR)
+> - a  toggle a bootable flag
+
+> mbr disk partition table sample (extended ≤ 1, primary + extended ≤ 4)
+
+| Device    | Boot | Start     | End       | Sectors   | Size | Id   | Type            |
+| --------- | ---- | --------: | --------: | --------: | ---: | ---: | --------------- |
+| /dev/sda1 | *    | 2048      | 2099199   | 2097152   | 1G   | 83   | Linux           |
+| /dev/sda2 |      | 2099200   | 268435455 | 266336256 | 127G | f    | W95 Ext'd (LBA) |
+| /dev/sda5 |      | 2101248   | 268435455 | 266334208 | 127G | 8e   | Linux LVM       |
+
 
 > - d  delete a partition
 
