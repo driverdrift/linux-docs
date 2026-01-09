@@ -16,7 +16,7 @@ Manipulate disk partition table (m for help)
 ```
 fdisk [device]
 ```
-Create a new label
+> Create a new label
 - g  create a new empty GPT partition table
 - o  create a new empty MBR (DOS) partition table
 
