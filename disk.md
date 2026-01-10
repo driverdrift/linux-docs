@@ -52,6 +52,26 @@ fdisk [device]
 | /dev/sda2 |      | 2099200   | 268435455 | 266336256 | 127G | f    | W95 Ext'd (LBA) |
 | /dev/sda5 |      | 2101248   | 268435455 | 266334208 | 127G | 8e   | Linux LVM       |
 
+> GPT
+> - M  enter protective/hybrid MBR
+| Device    | Start     | End       | Sectors   | Size | Type             |
+| :-------- | --------: | --------: | --------: | ---: | :--------------  |
+| /dev/sda1 | 2048      | 2099199   | 2097152   | 1G   | EFI System       |
+| /dev/sda2 | 2099200   | 268435455 | 266336256 | 127G | Linux filesystem |
+| /dev/sda3 | 2101248   | 268435455 | 266334208 | 127G | Linux LVM        |
+
+| NAME    | FSTYPE     | FSVER       | FSAVAIL   | MOUNTPOINTS |
+| :-------- | :-------- | :-------- | --------: | :--- |
+| sda1 | vfat      | FAT32   | 2097152   | 1G   | EFI System       |
+| sda2 | ext4   | 1.0 | 266336256 | 127G | Linux filesystem |
+| sda3  
+├─d| LVM2_member   | LVM2 001 | 266334208 | 127G | Linux LVM        |
+
+Device       Start       End   Sectors   Size Type
+/dev/sda1     2048   2000895   1998848   976M EFI System
+/dev/sda2  2000896   4001791   2000896   977M Linux filesystem
+/dev/sda3  4001792 268433407 264431616 126.1G Linux LVM
+
 > Save & Exit
 > - w  write table to disk and exit
 > - q  quit without saving changes
