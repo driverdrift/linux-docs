@@ -60,12 +60,13 @@ fdisk [device]
 | /dev/sda2 | 2099200   | 268435455 | 266336256 | 127G | Linux filesystem |
 | /dev/sda3 | 2101248   | 268435455 | 266334208 | 127G | Linux LVM        |
 
-| NAME    | FSTYPE     | FSVER       | FSAVAIL   | MOUNTPOINTS |
-| :-------- | :-------- | :-------- | --------: | :--- |
-| sda1 | vfat      | FAT32   | 2097152   | 1G   | EFI System       |
-| sda2 | ext4   | 1.0 | 266336256 | 127G | Linux filesystem |
-| sda3  
-├─d| LVM2_member   | LVM2 001 | 266334208 | 127G | Linux LVM        |
+| NAME                | FSTYPE      | FSVER    | FSAVAIL  | MOUNTPOINTS |
+| :------------------ | :---------- | :------- | -------: | :---        |
+| sda1                | vfat        | FAT32    | 965.3M   | /boot/efi   |
+| sda2                | ext4        | 1.0      | 803.8M   | /boot       |
+| sda3                | LVM2_member | LVM2 001 |          |             |
+| ├─debian--vg-root   | ext4        | 1.0      | 114.4G   | /           |
+| └─debian--vg-swap_1 | swap        | 1        |          | [SWAP]      |
 
 Device       Start       End   Sectors   Size Type
 /dev/sda1     2048   2000895   1998848   976M EFI System
