@@ -1,5 +1,5 @@
 > Virtual machine name: debian-cli  
-> Maximum disk size (GB): 128
+Maximum disk size (GB): 128
 > Memory: 2048 MB
 > Firmware type: UEFI
 
