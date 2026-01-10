@@ -4,15 +4,31 @@ free -h
 ```
 
 Add swap memory when necessary
+> Create a swapfile
 ```sh
 dd if=/dev/zero of=/swapfile bs=128M count=8
 chmod 600 /swapfile
 mkswap /swapfile
 swapon /swapfile  # temporarily swapon, auto swapoff when reboot
 ```
+> Create a swap partition
+```
+mkswap /dev/vdX
+swapon /dev/vdX
+```
+Auto enabled when boot.
+```
+blkid /dev/vdaX  # record uuid
+nano /etc/fstab
+```
+Add the recording in the last line:
+```
+UUID=xxxx-xxxx-xxxx none swap sw 0 0
+```
 
 Check if enabled
 ```sh
+swapon -a
 swapon --show
 ```
 
