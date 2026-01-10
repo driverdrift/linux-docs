@@ -54,6 +54,7 @@ fdisk [device]
 
 > GPT
 > - M  enter protective/hybrid MBR
+
 | Device    | Start     | End       | Sectors   | Size | Type             |
 | :-------- | --------: | --------: | --------: | ---: | :--------------  |
 | /dev/sda1 | 2048      | 2099199   | 2097152   | 1G   | EFI System       |
@@ -67,11 +68,6 @@ fdisk [device]
 | sda3                | LVM2_member | LVM2 001 |          |             |
 | ├─debian--vg-root   | ext4        | 1.0      | 114.4G   | /           |
 | └─debian--vg-swap_1 | swap        | 1        |          | [SWAP]      |
-
-Device       Start       End   Sectors   Size Type
-/dev/sda1     2048   2000895   1998848   976M EFI System
-/dev/sda2  2000896   4001791   2000896   977M Linux filesystem
-/dev/sda3  4001792 268433407 264431616 126.1G Linux LVM
 
 > Save & Exit
 > - w  write table to disk and exit
