@@ -1,15 +1,14 @@
 > Virtual machine name: debian-cli  
-Maximum disk size (GB): 128  
-Memory: 2048 MB  
-Firmware type: UEFI
+> Maximum disk size: 128 GB  
+> Memory: 2048 MB  
+> Firmware type: UEFI
 
-> Virtual machine name: debian-gui
-
-> Maximum disk size (GB): 256  
+> Virtual machine name: debian-gui  
+> Maximum disk size: 256 GB  
 > Memory: 4096 MB  
 > Firmware type: UEFI
 
-> Virtual machine name: debian-mbr
-> Maximum disk size (GB): 128
-> Memory: 2048 MB
+> Virtual machine name: debian-mbr  
+> Maximum disk size: 128 GB  
+> Memory: 2048 MB  
 > Firmware type: BIOS
