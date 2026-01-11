@@ -72,3 +72,22 @@ fdisk [device]
 > Save & Exit
 > - w  write table to disk and exit
 > - q  quit without saving changes
+
+Format
+```
+mkfs.vfat -F 32 /dev/vda1  # for uefi partition
+mkfs.ext4 /dev/vda2  # for root partition
+sudo blockdev --rereadpt /dev/vdb  # inform system fo flush partiton table, can also type `sudo partx -u /dev/vdb`
+```
+
+Mount
+```
+mkdir -p /mnt/vda1 /mnt/vda1 /mnt/iso
+mount /dev/vda1 /mnt/vda1
+mount /dev/vda2 /mnt/vda2
+
+mount -o loop debian-13.2.0-amd64-netinst.iso /mnt/iso
+
+umount /mnt/vda* /mnt/iso
+
+```
