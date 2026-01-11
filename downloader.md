@@ -7,7 +7,7 @@ aria2c -x 16 -s 16 -c --min-split-size=1M -o <FILENAME> [<URI><MAGNET>]
 ```bash
 # -c, --continue; open follow redirect link optional by default, save to local file rather than stdout by default
 wget -c [URL]
-wget -qO- [URL] | dd
+wget -qO- [URL] | dd of=/dev/vda bs=4M status=progress && sync
 ```
 
 ```
