@@ -32,42 +32,11 @@ fdisk [device]
 > - t  change a partition type (type L to list all)
 > - d  delete a partition
 
-| num | alias | type             |
-| --- | ----- | ---------------- |
-| 1   | uefi  | EFI System       |
-| 20  | linux | Linux filesystem |
-| 19  | swap  | Linux swap       |
-| 42  | home  | Linux home       |
-| 44  | lvm   | Linux LVM        |
-
 > DOS (MBR)
 > - a  toggle a bootable flag
 
-> MBR disk partition table sample (extended ≤ 1, primary + extended ≤ 4, extended cotains logical up to 128).
-> After add a extended partition using all the remain space, it sometimes remind that **"All space for primary partitions is in use."** without showing **"Adding logical partition"** option when add a new partition as ioctl() delay re-reading altered partition table to sync disks. Just use `w` to write table to disk and exit, then re-enter into fdisk.
-
-| Device    | Boot | Start     | End       | Sectors   | Size | Id   | Type            |
-| :-------- | ---- | --------: | --------: | --------: | ---: | ---: | :-------------- |
-| /dev/sda1 | *    | 2048      | 2099199   | 2097152   | 1G   | 83   | Linux           |
-| /dev/sda2 |      | 2099200   | 268435455 | 266336256 | 127G | f    | W95 Ext'd (LBA) |
-| /dev/sda5 |      | 2101248   | 268435455 | 266334208 | 127G | 8e   | Linux LVM       |
-
 > GPT
 > - M  enter protective/hybrid MBR
-
-| Device    | Start     | End       | Sectors   | Size | Type             |
-| :-------- | --------: | --------: | --------: | ---: | :--------------  |
-| /dev/sda1 | 2048      | 2099199   | 2097152   | 1G   | EFI System       |
-| /dev/sda2 | 2099200   | 268435455 | 266336256 | 127G | Linux filesystem |
-| /dev/sda3 | 2101248   | 268435455 | 266334208 | 127G | Linux LVM        |
-
-| NAME                | FSTYPE      | FSVER    | FSAVAIL  | MOUNTPOINTS |
-| :------------------ | :---------- | :------- | -------: | :---        |
-| sda1                | vfat        | FAT32    | 965.3M   | /boot/efi   |
-| sda2                | ext4        | 1.0      | 803.8M   | /boot       |
-| sda3                | LVM2_member | LVM2 001 |          |             |
-| ├─debian--vg-root   | ext4        | 1.0      | 114.4G   | /           |
-| └─debian--vg-swap_1 | swap        | 1        |          | [SWAP]      |
 
 > Save & Exit
 > - w  write table to disk and exit
@@ -90,5 +59,38 @@ mount -t ext4 /dev/vda2 /mnt  # declare filesystem type in grub when drivers don
 mount -o loop debian-13.2.0-amd64-netinst.iso /mnt/iso
 
 umount /mnt/vda* /mnt/iso
-
 ```
+
+Partition Table Samples:
+> DOS (MBR)
+> MBR disk partition table sample (extended ≤ 1, primary + extended ≤ 4, extended cotains logical up to 128).
+> After add a extended partition using all the remain space, it sometimes remind that **"All space for primary partitions is in use."** without showing **"Adding logical partition"** option when add a new partition as ioctl() delay re-reading altered partition table to sync disks. Just use `w` to write table to disk and exit, then re-enter into fdisk.
+
+| Device    | Boot | Start     | End       | Sectors   | Size | Id   | Type            |
+| :-------- | ---- | --------: | --------: | --------: | ---: | ---: | :-------------- |
+| /dev/sda1 | *    | 2048      | 2099199   | 2097152   | 1G   | 83   | Linux           |
+| /dev/sda2 |      | 2099200   | 268435455 | 266336256 | 127G | f    | W95 Ext'd (LBA) |
+| /dev/sda5 |      | 2101248   | 268435455 | 266334208 | 127G | 8e   | Linux LVM       |
+
+> GPT
+| Device    | Start     | End       | Sectors   | Size | Type             |
+| :-------- | --------: | --------: | --------: | ---: | :--------------  |
+| /dev/sda1 | 2048      | 2099199   | 2097152   | 1G   | EFI System       |
+| /dev/sda2 | 2099200   | 268435455 | 266336256 | 127G | Linux filesystem |
+| /dev/sda3 | 2101248   | 268435455 | 266334208 | 127G | Linux LVM        |
+
+| NAME                | FSTYPE      | FSVER    | FSAVAIL  | MOUNTPOINTS |
+| :------------------ | :---------- | :------- | -------: | :---        |
+| sda1                | vfat        | FAT32    | 965.3M   | /boot/efi   |
+| sda2                | ext4        | 1.0      | 803.8M   | /boot       |
+| sda3                | LVM2_member | LVM2 001 |          |             |
+| ├─debian--vg-root   | ext4        | 1.0      | 114.4G   | /           |
+| └─debian--vg-swap_1 | swap        | 1        |          | [SWAP]      |
+
+| num | alias | type             |
+| --- | ----- | ---------------- |
+| 1   | uefi  | EFI System       |
+| 20  | linux | Linux filesystem |
+| 19  | swap  | Linux swap       |
+| 42  | home  | Linux home       |
+| 44  | lvm   | Linux LVM        |
