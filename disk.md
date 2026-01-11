@@ -61,7 +61,7 @@ mount -o loop debian-13.2.0-amd64-netinst.iso /mnt/iso
 umount /mnt/vda* /mnt/iso
 ```
 
-Partition Table Samples:
+# Partition Table Samples:
 > DOS (MBR)
 > MBR disk partition table sample (extended ≤ 1, primary + extended ≤ 4, extended cotains logical up to 128).
 > After add a extended partition using all the remain space, it sometimes remind that **"All space for primary partitions is in use."** without showing **"Adding logical partition"** option when add a new partition as ioctl() delay re-reading altered partition table to sync disks. Just use `w` to write table to disk and exit, then re-enter into fdisk.
@@ -71,6 +71,8 @@ Partition Table Samples:
 | /dev/sda1 | *    | 2048      | 2099199   | 2097152   | 1G   | 83   | Linux           |
 | /dev/sda2 |      | 2099200   | 268435455 | 266336256 | 127G | f    | W95 Ext'd (LBA) |
 | /dev/sda5 |      | 2101248   | 268435455 | 266334208 | 127G | 8e   | Linux LVM       |
+
+---
 
 > GPT
 
@@ -95,3 +97,5 @@ Partition Table Samples:
 | 19  | swap  | Linux swap       |
 | 42  | home  | Linux home       |
 | 44  | lvm   | Linux LVM        |
+
+---
