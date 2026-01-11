@@ -1,3 +1,4 @@
+```bash
 xxd -l 512 debian-13.2.0-amd64-netinst.iso
 
 hexdump -C -n 512 debian-13.2.0-amd64-netinst.iso
@@ -5,6 +6,9 @@ hexdump -C -n 512 debian-13.2.0-amd64-netinst.iso
 od -Ax -tx1 -v -N 512 debian-13.2.0-amd64-netinst.iso
 
 dd if=debian-13.2.0-amd64-netinst.iso bs=1 skip=$((16*2048 - 64)) count=$((2048 + 128)) 2>/dev/null | hexdump -C
+
+sudo dd if=/dev/sdb bs=4096 count=1 2>/dev/null | xxd -p -c 16 > see.txt
+```
 
 diskpartition 
 
