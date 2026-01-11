@@ -85,6 +85,7 @@ Mount
 mkdir -p /mnt/vda1 /mnt/vda1 /mnt/iso
 mount /dev/vda1 /mnt/vda1
 mount /dev/vda2 /mnt/vda2
+mount -t ext4 /dev/vda2 /mnt  # declare filesystem type in grub when drivers don't enabled
 
 mount -o loop debian-13.2.0-amd64-netinst.iso /mnt/iso
 
