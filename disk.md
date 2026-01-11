@@ -73,6 +73,7 @@ Partition Table Samples:
 | /dev/sda5 |      | 2101248   | 268435455 | 266334208 | 127G | 8e   | Linux LVM       |
 
 > GPT
+
 | Device    | Start     | End       | Sectors   | Size | Type             |
 | :-------- | --------: | --------: | --------: | ---: | :--------------  |
 | /dev/sda1 | 2048      | 2099199   | 2097152   | 1G   | EFI System       |
